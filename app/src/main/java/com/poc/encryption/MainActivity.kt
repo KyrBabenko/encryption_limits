@@ -39,7 +39,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun loadJsonFromAssets(context: Context): String {
         return try {
-            val inputStream = context.assets.open("randomized_keys_and_strings.json")
+            val inputStream = context.assets.open("randomized-limit.json")
+//            val inputStream = context.assets.open("randomized-correct.json")
             val bufferedReader = BufferedReader(InputStreamReader(inputStream))
             val stringBuilder = StringBuilder()
             var line: String?
