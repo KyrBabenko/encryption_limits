@@ -5,7 +5,7 @@ Success scenario:
 1) Launch the app
 2) Click "Encode" button
 3) Click "Decode" button
-4) It show work properly on Android 6.0 / 7.0 /8.0 / 9.0
+4) It will work properly on Android 6.0 / 7.0 /8.0 / 9.0
 
 Limitation scenario:
 1) Open MainActivity 
