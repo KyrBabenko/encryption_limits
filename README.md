@@ -19,7 +19,7 @@ Emulator settings:
 For testing I used Pixel 6 API 28 device with default params
 
 The record with results:
-[demo videos](attachments/demo_video.mov)
+![AEADBadTagException](attachments/AEADBadTagException%20error.png)
 
 The screenshot with error:
 ![javax.crypto.AEADBadTagException screenshot](attachments/AEADBadTagException error.png)
