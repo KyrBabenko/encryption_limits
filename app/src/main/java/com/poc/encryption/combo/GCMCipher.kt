@@ -32,7 +32,8 @@ object GCMCipher {
         val ciphertext = cipher.doFinal(stringBytes)
 
         val iv: ByteArray = cipher.iv
-        val buffer = ByteBuffer.allocate(IV_SIZE + Integer.BYTES + ciphertext.size)
+        val integerBytes = Integer.SIZE / java.lang.Byte.SIZE
+        val buffer = ByteBuffer.allocate(IV_SIZE + integerBytes + ciphertext.size)
         buffer.put(iv)
         buffer.putInt(ciphertext.size)
         buffer.put(ciphertext)
