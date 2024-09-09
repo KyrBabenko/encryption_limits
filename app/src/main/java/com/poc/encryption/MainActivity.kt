@@ -14,23 +14,25 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private val gson = Gson()
+    private lateinit var cryptoUtil: CryptoUtil
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        initCryptoUtil()
         initListeners()
     }
 
     private fun initListeners() {
         binding.encrypt.setOnClickListener {
             val data = loadJsonFromAssets(this)
-            val encryptedData = CryptoUtil.encrypt(data)
+            val encryptedData = cryptoUtil.encrypt(data)
             binding.encryptedValue.text = encryptedData
         }
         binding.decrypt.setOnClickListener {
             val encryptedData = binding.encryptedValue.text.toString()
-            val decryptedData = CryptoUtil.decrypt(encryptedData)
+            val decryptedData = cryptoUtil.decrypt(encryptedData)
             binding.decryptedValue.text = decryptedData
             val array = gson.fromJson<Map<String, String>>(decryptedData, object:TypeToken<Map<String, String>>() {}.type)
             Toast.makeText(this, "Length: ${array.size}", Toast.LENGTH_SHORT).show()
@@ -55,5 +57,10 @@ class MainActivity : AppCompatActivity() {
             e.printStackTrace()
             ""
         }
+    }
+
+    private fun initCryptoUtil() {
+        val preferences = getSharedPreferences("crypto", MODE_PRIVATE)
+        cryptoUtil = CryptoUtil(preferences)
     }
 }
