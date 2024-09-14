@@ -1,4 +1,4 @@
-package com.poc.encryption.combo
+package com.poc.encryption.encryptor
 
 import android.security.keystore.KeyGenParameterSpec
 import android.security.keystore.KeyProperties.BLOCK_MODE_GCM

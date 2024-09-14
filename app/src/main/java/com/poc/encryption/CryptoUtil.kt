@@ -1,7 +1,7 @@
 package com.poc.encryption
 
 import android.content.SharedPreferences
-import com.poc.encryption.combo.GCMCipher
+import com.poc.encryption.encryptor.GCMCipher
 import com.poc.encryption.lib.AesGcmJce
 import java.security.SecureRandom
 
@@ -31,17 +31,17 @@ class CryptoUtil(
         aesGcmJce = AesGcmJce(key)
     }
 
-    fun encrypt(value: String): String = GCMCipher.encrypt(value)
+    fun encryptKeystore(value: String): String = GCMCipher.encrypt(value)
 
-    fun decrypt(value: String): String = GCMCipher.decrypt(value)
+    fun decryptKeystore(value: String): String = GCMCipher.decrypt(value)
 
-    fun encryptSecure(value: String): String {
+    fun encryptMasterKey(value: String): String {
         val valueByteArray = value.encodeBase64()
         val encrypted = aesGcmJce.encrypt(valueByteArray)
         return encrypted.encodeToStringBase64()
     }
 
-    fun decryptSecure(value: String): String {
+    fun decryptMasterKey(value: String): String {
         val decodedValue = value.decodeBase64()
         val decrypted = aesGcmJce.decrypt(decodedValue)
         return decrypted.decodeToStringBase64()

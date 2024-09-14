@@ -27,12 +27,12 @@ class MainActivity : AppCompatActivity() {
     private fun initListeners() {
         binding.encrypt.setOnClickListener {
             val data = loadJsonFromAssets(this)
-            val encryptedData = cryptoUtil.encrypt(data)
+            val encryptedData = cryptoUtil.encryptKeystore(data)
             binding.encryptedValue.text = encryptedData
         }
         binding.decrypt.setOnClickListener {
             val encryptedData = binding.encryptedValue.text.toString()
-            val decryptedData = cryptoUtil.decrypt(encryptedData)
+            val decryptedData = cryptoUtil.decryptKeystore(encryptedData)
             binding.decryptedValue.text = decryptedData
             val array = gson.fromJson<Map<String, String>>(decryptedData, object:TypeToken<Map<String, String>>() {}.type)
             Toast.makeText(this, "Length: ${array.size}", Toast.LENGTH_SHORT).show()
