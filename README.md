@@ -1,6 +1,7 @@
 The current project aims to show data input limits for AES-GCM encryption.
 
 For testing so you need:
+
 Success scenario:
 1) Launch the app
 2) Click "Encode" button
