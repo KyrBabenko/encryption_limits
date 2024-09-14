@@ -1,4 +1,4 @@
-The current project aims to show data input limits for AES-GCM encryption.
+The current project aims to show data input limits for AES-GCM encryption on Android < 10 (API 29).
 
 For testing so you need:
 
@@ -6,7 +6,7 @@ Success scenario:
 1) Launch the app
 2) Click "Encode" button
 3) Click "Decode" button
-4) It will work properly on Android 6.0 / 7.0 /8.0 / 9.0
+4) It will work properly
 
 Limitation scenario:
 1) Open MainActivity 
